@@ -14,7 +14,6 @@ class CppZmqConan(ConanFile):
     exports = ["LICENSE.md"]
     exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
-    # FIXME : we actually don't need these, but CMake helper require em
     settings = ['compiler', 'arch']
 
     source_subfolder = "source_subfolder"
@@ -31,8 +30,6 @@ class CppZmqConan(ConanFile):
         os.rename(extracted_dir, self.source_subfolder)
 
     def build(self):
-        # TODO :
-        # ConanException: You must specify compiler, compiler.version and arch in your settings to use a CMake generator
         tools.replace_in_file(os.path.join(self.source_subfolder, 'CMakeLists.txt'),
                               'CMAKE_SOURCE_DIR',
                               'CMAKE_CURRENT_SOURCE_DIR')
