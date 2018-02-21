@@ -20,7 +20,7 @@ class CppZmqConan(ConanFile):
     build_subfolder = "build_subfolder"
 
     def requirements(self):
-        self.requires.add('zmq/[>=4.2.2]@bincrafters/stable')
+        self.requires.add('zmq/4.2.2@bincrafters/stable')
 
     def source(self):
         source_url = "https://github.com/zeromq/cppzmq"
