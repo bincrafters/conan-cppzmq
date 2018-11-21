@@ -18,10 +18,8 @@ class CppZmqConan(ConanFile):
     exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
     no_copy_source = True
+    requires = "zmq/4.2.5@bincrafters/stable"
     _source_subfolder = "source_subfolder"
-
-    def requirements(self):
-        self.requires.add('zmq/4.2.5@bincrafters/stable')
 
     def source(self):
         tools.get("{0}/archive/v{1}.tar.gz".format(self.homepage, self.version))
