@@ -7,7 +7,7 @@ from conans import ConanFile, CMake, tools
 
 class CppZmqConan(ConanFile):
     name = "cppzmq"
-    version = "4.3.0"
+    version = "4.4.1"
     url = "https://github.com/bincrafters/conan-cppzmq"
     homepage = "https://github.com/zeromq/cppzmq"
     description = "C++ binding for 0MQ"
@@ -19,10 +19,14 @@ class CppZmqConan(ConanFile):
     generators = "cmake"
     no_copy_source = True
     requires = "zmq/4.2.5@bincrafters/stable"
-    _source_subfolder = "source_subfolder"
+
+    @property
+    def _source_subfolder(self):
+        return "source_subfolder"
 
     def source(self):
-        tools.get("{0}/archive/v{1}.tar.gz".format(self.homepage, self.version))
+        sha256 = "117fc1ca24d98dbe1a60c072cde13be863d429134907797f8e03f654ce679385"
+        tools.get("{0}/archive/v{1}.tar.gz".format(self.homepage, self.version), sha256=sha256)
         extracted_dir = self.name + "-" + self.version
         os.rename(extracted_dir, self._source_subfolder)
 
