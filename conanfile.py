@@ -8,7 +8,6 @@ class CppZmqConan(ConanFile):
     url = "https://github.com/bincrafters/conan-cppzmq"
     homepage = "https://github.com/zeromq/cppzmq"
     description = "C++ binding for 0MQ"
-    author = "Bincrafters <bincrafters@gmail.com>"
     license = "MIT"
     topics = ("conan", "cppzmq", "zmq-cpp", "zmq", "cpp-bind")
     exports = ["LICENSE.md"]
